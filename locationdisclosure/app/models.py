@@ -37,4 +37,6 @@ class User_Profile(models.Model):
     answers = models.ManyToManyField(Answer)
     mturk_payment_code = models.CharField(max_length=10)
     country = models.CharField(max_length=25)
+    state = models.CharField(max_length=25)
+    zipcode = models.CharField(max_length=25)
     completed = models.IntegerField(default=0)

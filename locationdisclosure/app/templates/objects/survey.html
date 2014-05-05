@@ -1,9 +1,8 @@
 {% extends 'pages/base.html' %}
 
-{% block title %}Exit survey - Page {{ current_group|add:-4 }}{% endblock %}
+{% block title %}Survey - Page {{ current_group|add:-4 }}{% endblock %}
 
 {% block head %}
-<script src='{{ STATIC_URL }}js/ajax_submit.js'></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -15,11 +14,6 @@ $(document).ready(function() {
         template: '<div class="{errMsgClass}"><div class="bvalidator_bootstrap_arrow"></div><div class="bvalidator_bootstrap_cont1">{message}</div></div>',    
         templateCloseIcon: '<div style="display:table"><div style="display:table-cell">{message}</div><div style="display:table-cell"><div class="{closeIconClass}">&#215;</div></div></div>'
     };
-    var current_group = {{current_group}};
-    if ((current_group != 5) && (current_group != 6)) {
-        
-        $('#survey_form').bValidator(optionsBootstrap);
-    }
 });
 </script>
 
@@ -42,63 +36,7 @@ $(document).ready(function() {
 
 <div class='row'>
     <div class='col-md-12'>
-        {% if current_group == 13 %}
-            <div id='disclosure' style='text-align: center;'>
-                <h3>Thank you for your cooperation.</h3>
-            </div>
-        {% else %}
-            <div id='preamble'>
-                {% include 'objects/preamble.html' %}
-            </div>
-            <form id='survey_form' method='POST' action='/submit_survey'>{% csrf_token %}
-                <div class='form-group' style='padding: 20px;'>
-                    {% for q in questions %}
-                        <h4>{{ forloop.counter }}. {{ q.text }}</h4>
-                        <br>
-                        {% if q.category == '1' %}
-                            {% include 'objects/general_radio.html' %}
-                        {% elif q.category == '2' %}
-                            {% include 'objects/likert_agree.html' %}
-                        {% elif q.category == '3' %}
-                            {% include 'objects/likert_likely.html' %}
-                        {% elif q.category == '0' %}
-                            {% include 'objects/textarea.html' %}
-                        {% elif q.category == '4' %}
-                            {% if request.session.language == 'PO' %}
-                            <div class='radioGroupBelow' style='padding-bottom: 20px;'>
-                                <label class='blank'>{{ option.polish }}<input type="radio" id='option' name="{{ q.question.id }}" style='display:none;' class='blank' value='{{ option.polish }}'><input type='text' class='form-control' name="{{ q.question.id }}" onclick='document.getElementById("option").checked=true;'/></label>
-                                <label class='blank'>{{ option.polish }}<input type="radio" name="{{ q.question.id }}" class='blank' value='{{ option.polish }}' data-bvalidator='required' data-bvalidator-msg='Please answer all questions on this page' />I prefer not to answer</label>
-                            </div>
-                            {% elif request.session.language == 'DE' %}
-                            <div class='radioGroupBelow' style='padding-bottom: 20px;'>
-                                <label class='blank'>{{ option.german }}<input type="radio" id='option' name="{{ q.question.id }}" style='display:none;' class='blank' value='{{ option.german }}'><input type='text' class='form-control' name="{{ q.question.id }}" onclick='document.getElementById("option").checked=true;'/></label>
-                                <label class='blank'>{{ option.german }}<input type="radio" name="{{ q.question.id }}" class='blank' value='{{ option.german }}' data-bvalidator='required' data-bvalidator-msg='Please answer all questions on this page' />I prefer not to answer</label>
-                            </div>
-                            {% elif request.session.language == 'IT' %}
-                            <div class='radioGroupBelow' style='padding-bottom: 20px;'>
-                                <label class='blank'>{{ option.italian }}<input type="radio" id='option' name="{{ q.question.id }}" style='display:none;' class='blank' value='{{ option.italian }}'><input type='text' class='form-control' name="{{ q.question.id }}" onclick='document.getElementById("option").checked=true;'/></label>
-                                <label class='blank'>{{ option.italian }}<input type="radio" name="{{ q.question.id }}" class='blank' value='{{ option.italian }}' data-bvalidator='required' data-bvalidator-msg='Please answer all questions on this page' />I prefer not to answer</label>
-                            </div>
-                            {% else %}
-                            <div class='radioGroupBelow' style='padding-bottom: 20px;'>
-                                <label class='blank'>{{ option.english }}<input type="radio" id='option' name="{{ q.question.id }}" style='display:none;' class='blank' value='{{ option.english }}'><input type='text' class='form-control' name="{{ q.question.id }}" onclick='document.getElementById("option").checked=true;'/></label>
-                                <label class='blank'>{{ option.english }}<input type="radio" name="{{ q.question.id }}" class='blank' value='{{ option.english }}' data-bvalidator='required' data-bvalidator-msg='Please answer all questions on this page' />I prefer not to answer</label>
-                            </div>
-                            {% endif %}
-                        {% endif %}
-                    {% endfor %}
-                    {% if current_group <= 10 %}
-                        <input type='submit' class='btn btn-default' value='Next >>'/>
-                    {% elif current_group == 11 %}
-                        <input type='submit' class='btn btn-default' value='Next >>' onclick='submit_time();' />
-                    {% else %}
-                        <div style='text-align: center;'>
-                            <input type='submit' class='btn btn-default' value='Done' />
-                        </div>
-                    {% endif %}
-                </div>
-            </form>
-        {% endif %}
+        
     </div>
 </div>
 
