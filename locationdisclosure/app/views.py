@@ -86,10 +86,10 @@ def welcome(request):
 
     context['conint'] = conint
     if conint == 1:
-        context['zipcode'] = User_Profil.objects.get(user=request.user).zipcode
+        context['zipcode'] = User_Profile.objects.get(user=request.user).zipcode
         if len(context['zipcode'] >= 5):
             context['zipcode'][1:4] = 'X'
-            
+
     return render(request, 'objects/welcome.html', context)
 
 
