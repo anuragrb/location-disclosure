@@ -10,6 +10,7 @@ from django.conf import settings
 
 urlpatterns = patterns('',
                        url(r'^survey_page$', 'app.views.survey_page'),
+                       url(r'^welcome$', 'app.views.welcome'),
                        url(r'^$', 'app.views.landing'),
 
                        ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
