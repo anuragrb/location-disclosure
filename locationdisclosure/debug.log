@@ -1,0 +1,15 @@
+ERROR 2014-05-05 01:05:10,114 views: There was a key error while retrieving a city or country from freegeoip.net
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 44, in landing
+    'http://freegeoip.net/csv/' + get_client_ip(request))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/requests/api.py", line 55, in get
+    return request('get', url, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/requests/api.py", line 44, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/requests/sessions.py", line 383, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/requests/sessions.py", line 486, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/requests/adapters.py", line 382, in send
+    raise ConnectionError(e)
+ConnectionError: HTTPConnectionPool(host='freegeoip.net', port=80): Max retries exceeded with url: /csv/127.0.0.1 (Caused by <class 'socket.error'>: [Errno 2] No such file or directory)
