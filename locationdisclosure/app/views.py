@@ -87,8 +87,30 @@ def welcome(request):
     context['conint'] = conint
     if conint == 1:
         context['zipcode'] = User_Profile.objects.get(user=request.user).zipcode
-        if len(context['zipcode']) >= 5:
-            context['zipcode'][1:4] = 'X'
+        data = context['zipcode']
+        if len(data) == 5:
+
+            i = 0
+            while i < len(data):
+
+                if i < 2:
+                    new_data = new_data + data[i]
+                else:
+                    new_data = new_data + 'X'
+                i = i + 1
+            context[zipcode = new_data]
+
+        if len(data) >= 6:
+
+            i = 0
+            while i < len(data):
+
+                if i < 3:
+                    new_data = new_data + data[i]
+                else:
+                    new_data = new_data + 'X'
+                i = i + 1
+            context[zipcode = new_data]
 
     return render(request, 'objects/welcome.html', context)
 
