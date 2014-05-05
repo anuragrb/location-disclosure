@@ -111,7 +111,7 @@ def welcome(request):
                     new_data = new_data + 'X'
                 i = i + 1
         
-        context[zipcode] = new_data
+        context['zipcode'] = new_data
 
     return render(request, 'objects/welcome.html', context)
 
