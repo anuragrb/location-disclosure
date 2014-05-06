@@ -81,8 +81,13 @@ def welcome(request):
     if not 'answered_group' in request.session:
         request.session['answered_group'] = 0
 
+    if not 'next_up' in request.session:
+        request.session['next_up'] = 0
+
     if not 'conint' in request.session:
         return redirect('/')
+
+    request.session['counter'] = 0
 
     conint = request.session['conint']
 
@@ -164,8 +169,61 @@ def welcome(request):
 
 def survey_page(request):
 
+    context = {'page': 'survey'}
+    context['current_group'] = request.session['answered_group']
+    context['questions'] = []
+    user_profile = User_Profile.objects.get(user=request.user)
+    questions = Question.objects.filter(
+        group=request.session['answered_group'])
 
-    return render(request, 'objects/survey.html')
+    context['user_profile'] = user_profile
+    for question in questions:
+        q = {}
+        q['question'] = question
+        q['text'] = question.text
+        q['options'] = question.options.all()
+        q['category'] = question.category
+        context['questions'].append(q)
+    return render(request, 'objects/survey.html', context)
+
+
+def submit_survey(request):
+    context = {'page': 'submit_survey'}
+    if request.is_ajax:
+        try:
+            keys = request.POST.iterkeys()
+
+            for key in keys:
+                if key != 'csrfmiddlewaretoken':
+                    question = Question.objects.get(id=key)
+                    new_answer = Answer(
+                        question=question, user=request.user, text=request.POST[key])
+                    new_answer.save()
+                    if str(key) == '34':
+                        user_profile = User_Profile.objects.get(user=request.user)
+                        user_profile.completed = 1
+                        user_profile.save()
+
+            if request.session['counter'] < 2:
+                request.session['next_up'] = random.randint(1, 2)
+
+                if request.session['next_up'] == 1:
+                    request.session['answered_group'] = request.session['next_up']
+                    request.session['counter'] += 1 
+                    request.session['next_up'] = 2
+                    
+                else:
+                    request.session['answered_group'] = request.session['next_up']
+                    request.session['counter'] += 1 
+                    request.session['next_up'] = 1
+
+            else:
+                request.session['answered_group'] = request.session['counter'] + 1
+                request.session['counter'] += 1
+
+        except Exception as e:
+            logger.exception('Something terrible happened while saving survey data. Check stack trace')
+        return redirect('/survey_page')
 
 
 def get_client_ip(request):
@@ -175,3 +233,7 @@ def get_client_ip(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
     return ip
+
+
+def thanks(request):
+    return render(request, 'objects/thanks.html')

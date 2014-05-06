@@ -11,6 +11,8 @@ from django.conf import settings
 urlpatterns = patterns('',
                        url(r'^survey_page$', 'app.views.survey_page'),
                        url(r'^welcome$', 'app.views.welcome'),
+                       url(r'^submit_survey$', 'app.views.submit_survey'),
+                       url(r'^thanks$', 'app.views.thanks'),
                        url(r'^$', 'app.views.landing'),
 
                        ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

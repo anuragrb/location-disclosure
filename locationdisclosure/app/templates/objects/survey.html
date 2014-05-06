@@ -36,7 +36,24 @@ $(document).ready(function() {
 
 <div class='row'>
     <div class='col-md-12'>
-        
+        <form id='survey_form' method='POST' action='/submit_survey'>{% csrf_token %}
+            <div class='form-group' style='padding: 10px;'>
+            {% for q in questions %}
+                <h4>{{ forloop.counter }}. {{ q.text }}</h4>
+                <br>
+                {% if q.category == '1' %}
+                    {% include 'objects/general_radio.html' %}
+                {% elif q.category == '2' %}
+                    {% include 'objects/likert_agree.html' %}
+                {% elif q.category == '0' %}
+                    {% include 'objects/textbox.html' %}
+                {% elif q.category == '3' %}
+                    {% include 'objects/likert_agree.html' %}
+                {% endif %}
+            {% endfor %}
+            <input type='submit' class='btn btn-default' value='Next >>'/>
+            </div>
+        </form>
     </div>
 </div>
 
