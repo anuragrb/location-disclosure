@@ -10,7 +10,23 @@
 
 {% if conint == 1 %}
 
-{{ zipcode }}
+Before we begin with the actual questions, please first verify that you are currently in the following location.
+
+Notice that, for your privacy, we are not showing the full 5-digit Zip code. Please just confirm whether the first two digits are correct.
+
+<form id='verifyform' onsubmit='return yesvalidator();' action='/welcome' method='POST'>{% csrf_token %}
+
+{% for q in questions %}
+
+<h4>{{ forloop.counter }}. {{ q.text }}:</h4>
+
+{% include 'objects/general_radio.html' %} 
+
+<br>
+
+{% endfor %}
+
+</form>
 
 {% elif conint == 2 %}
 

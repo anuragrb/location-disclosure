@@ -77,17 +77,20 @@ def landing(request):
 def welcome(request):
 
     context = {'page':'welcome'}
+
+    if not 'answered_group' in request.session:
+        request.session['answered_group'] = 0
+
     if not 'conint' in request.session:
         return redirect('/')
 
     conint = request.session['conint']
-    if conint == 3:
-        return redirect('/survey_page')
 
-    context['conint'] = conint
+    user_profile = User_Profile.objects.get(user=request.user)
+    questions = Question.objects.filter(group=str(request.session['answered_group']))
+    questions_array = []
     if conint == 1:
-        context['zipcode'] = User_Profile.objects.get(user=request.user).zipcode
-        data = context['zipcode']
+        data = user_profile.zipcode
         new_data = ''
         if len(data) == 5:
 
@@ -97,7 +100,7 @@ def welcome(request):
                 if i < 2:
                     new_data = new_data + data[i]
                 else:
-                    new_data = new_data + 'X'
+                    new_data = new_data + '*'
                 i = i + 1
 
         if len(data) >= 6:
@@ -108,10 +111,53 @@ def welcome(request):
                 if i < 3:
                     new_data = new_data + data[i]
                 else:
-                    new_data = new_data + 'X'
+                    new_data = new_data + '*'
                 i = i + 1
         
-        context['zipcode'] = new_data
+        zipcode = new_data
+        country = user_profile.country
+        state = user_profile.state
+        city = user_profile.city
+        i = 0
+        for question in questions:
+            q = {}
+            q['question'] = question
+            if i == 0:
+                question.text = '{0}: {1}'.format(question.text, city)
+            elif i == 1:
+                question.text = '{0}: {1}'.format(question.text, state)
+            elif i == 2:
+                question.text = '{0}: {1}'.format(question.text, country)
+            else:
+                question.text = '{0}: {1}'.format(question.text, zipcode)
+
+            q['text'] = question.text
+            q['options'] = question.options.all()
+            q['category'] = question.category
+
+            questions_array.append(q)
+            i = i + 1
+            if i == 4:
+                break
+
+    if conint == 2:
+        i = 0
+        for question in questions:
+            if i < 4:
+                i = i + 1
+            else:
+                q = {}
+                q['question'] = question
+                q['text'] = question.text
+                q['category'] = question.category
+                questions_array.append(q)
+                i = i + 1
+
+    context['questions'] = questions_array
+    context['conint'] = conint
+
+    if conint == 3:
+        return redirect('/survey_page')
 
     return render(request, 'objects/welcome.html', context)
 

@@ -1,32 +1,3 @@
-{% if request.session.language == 'PO' %}
-<div class='radioGroupBelow' style='padding-left:10px;'>
-    <div style='display: inline-block; text-align:center; width: 100px; word-wrap: break-word;'>
-        <label>Zdecydowanie się nie zgadzam<input type="radio" name="{{ q.question.id }}" value='Strongly Disagree' /></label>
-    </div>
-    <div style='display: inline-block; text-align:center; width: 100px; word-wrap: break-word;'>
-        <label class='blank'><br><input type="radio" name="{{ q.question.id }}" class='blank' value='Disagree' /></label>
-    </div>
-    <div style='display: inline-block; text-align:center; width: 100px; word-wrap: break-word;'>
-        <label class='blank'><br><input type="radio" name="{{ q.question.id }}" class='blank' value='Somewhat Disagree' /></label>
-    </div>
-    <div style='display: inline-block; text-align:center; width: 100px; word-wrap: break-word;'>
-        <label class='blank'><br><input type="radio" name="{{ q.question.id }}" class='blank' value='Neutral' /></label>
-    </div>
-    <div style='display: inline-block; text-align:center; width: 100px; word-wrap: break-word;'>
-        <label class='blank'><br><input type="radio" name="{{ q.question.id }}" class='blank' value='Somewhat Agree' /></label>
-    </div>
-    <div style='display: inline-block; text-align:center; width: 100px; word-wrap: break-word;'>
-        <label class='blank'><br><input type="radio" name="{{ q.question.id }}" class='blank' value='Agree' /></label>
-    </div>
-    <div style='display: inline-block; text-align:center; width: 100px; word-wrap: break-word;'>
-        <label>Zdecydowanie się zgadzam<input type="radio" name="{{ q.question.id }}" value='Strongly Agree' data-bvalidator='required' data-bvalidator-msg='Please answer all questions on this page'/></label>
-    </div>
-</div>
-<br>
-<br>
-{% elif request.session.language == 'DE' %}
-{% elif request.session.language == 'IT' %}
-{% else %}
 <div class='radioGroupBelow' style='padding-left:10px;'>
     <div style='display: inline-block; text-align:center; width: 100px; word-wrap: break-word;'>
         <label>Strongly Disagree<input type="radio" name="{{ q.question.id }}" value='Strongly Disagree' /></label>
@@ -35,13 +6,7 @@
         <label class='blank'><br><input type="radio" name="{{ q.question.id }}" class='blank' value='Disagree' /></label>
     </div>
     <div style='display: inline-block; text-align:center; width: 100px; word-wrap: break-word;'>
-        <label class='blank'><br><input type="radio" name="{{ q.question.id }}" class='blank' value='Somewhat Disagree' /></label>
-    </div>
-    <div style='display: inline-block; text-align:center; width: 100px; word-wrap: break-word;'>
         <label class='blank'><br><input type="radio" name="{{ q.question.id }}" class='blank' value='Neutral' /></label>
-    </div>
-    <div style='display: inline-block; text-align:center; width: 100px; word-wrap: break-word;'>
-        <label class='blank'><br><input type="radio" name="{{ q.question.id }}" class='blank' value='Somewhat Agree' /></label>
     </div>
     <div style='display: inline-block; text-align:center; width: 100px; word-wrap: break-word;'>
         <label class='blank'><br><input type="radio" name="{{ q.question.id }}" class='blank' value='Agree' /></label>
@@ -52,4 +17,3 @@
 </div>
 <br>
 <br>
-{% endif %}

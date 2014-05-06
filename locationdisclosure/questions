@@ -1,0 +1,35 @@
+City \That is correct \That is incorrect \0 \1  
+State \That is correct \That is incorrect \0 \1 
+Country \That is correct \That is incorrect \0 \1 
+Zip Code \That is correct \That is incorrect \0 \1 
+City \0 \0
+State \0 \0
+Country \0 \0
+Zip Code \0 \0
+Had sex with the current partner of a friend? \Never \Once \Twice \Sometimes \Often \I prefer not to say \1 \1
+Lied about your age? \Never \Once \Twice \Sometimes \Often \I prefer not to say \1 \1
+Cheated at sports or games? \Never \Once \Twice \Sometimes \Often \I prefer not to say \1 \1
+Tried to gain access to someone else's phone or email without their knowledge or consent? \Never \Once \Twice \Sometimes \Often \I prefer not to say \1 \1
+Made up a serious excuse, such as grave illness or death in the family, to get out of doing something? \Never \Once \Twice \Sometimes \Often \I prefer not to say \1 \1
+Called in sick when you were not sick? \Never \Once \Twice \Sometimes \Often \I prefer not to say \1 \1
+Stolen anything worth more than $25? \Never \Once \Twice \Sometimes \Often \I prefer not to say \1 \1
+Let a friend drive after s/he had too had much to drink or had used drugs? \Never \Once \Twice \Sometimes \Often \I prefer not to say \1 \1
+Masturbated in a public space, such as a public restroom? \Never \Once \Twice \Sometimes \Often \I prefer not to say \2 \1
+Looked at pornographic material? \Never \Once \Twice \Sometimes \Often \I prefer not to say \2 \1
+Cheated on your tax return? \Never \Once \Twice \Sometimes \Often \I prefer not to say \2 \1
+Fantasized about doing something terrible (e.g., torturing) to someone? \Never \Once \Twice \Sometimes \Often \I prefer not to say \2 \1
+Encouraged someone to drink when you were trying to seduce them? \Never \Once \Twice \Sometimes \Often \I prefer not to say \2 \1
+Smoked marijuana or an illegal drug? \Never \Once \Twice \Sometimes \Often \I prefer not to say \2 \1
+Made a false insurance claim? \Never \Once \Twice \Sometimes \Often \I prefer not to say \2 \1
+Taken nude pictures of yourself or your partner? \Never \Once \Twice \Sometimes \Often \I prefer not to say \2 \1
+For research purposes, please state your gender. \Male \Female \3 \1
+Please enter your age in years. \3 \0
+What is your race? \White \Black \Hispanic \Asian Indian \Other Asian \American Indian or Islander \Other - please specify \3 \2
+Where do you currently live?  \House \Apartment \Mobile home \Other - please specify \3 \1
+Do you currently live with other people? \Yes \No - I live by myself \3 \1
+Do you own the place where you live? \Yes \No - I'm renting \No - I'm living there without paying rent \3 \1
+Do you have a mortgage or loan? \Yes \No \3 \1
+Some of the responses I gave are actually not true \4 \2
+I was concerned about incriminating myself \4 \2
+I was concerned about whether my responses would truly be private \4 \2
+I was concerned about whether my responses would be kept confidential \4 \2
