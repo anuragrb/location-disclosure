@@ -1,0 +1,6 @@
+{% for option in q.options %}
+
+<input type="checkbox" name="race" name="{{ q.question.id }}"  value={{ option.text }} />
+<label>{{ option.text }}</label><br />
+
+{% endfor %}
