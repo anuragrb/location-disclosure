@@ -13,3 +13,661 @@ Traceback (most recent call last):
   File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/requests/adapters.py", line 382, in send
     raise ConnectionError(e)
 ConnectionError: HTTPConnectionPool(host='freegeoip.net', port=80): Max retries exceeded with url: /csv/127.0.0.1 (Caused by <class 'socket.error'>: [Errno 2] No such file or directory)
+ERROR 2014-05-07 06:02:14,741 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 199, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'race'
+ERROR 2014-05-07 06:02:23,242 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 199, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'race'
+ERROR 2014-05-07 06:35:26,771 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 206, in submit_survey
+    increment_counter()
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 237, in increment_counter
+    if request.session['answered_group'] > 0 and request.session['answered_group'] <= 2:
+NameError: global name 'request' is not defined
+ERROR 2014-05-07 06:56:21,854 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 209, in submit_survey
+    increment_counter()
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 240, in increment_counter
+    request.session['counter'] += 1
+NameError: global name 'request' is not defined
+ERROR 2014-05-07 06:56:30,392 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 209, in submit_survey
+    increment_counter()
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 240, in increment_counter
+    request.session['counter'] += 1
+NameError: global name 'request' is not defined
+ERROR 2014-05-07 06:56:43,854 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 209, in submit_survey
+    increment_counter()
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 240, in increment_counter
+    request.session['counter'] += 1
+NameError: global name 'request' is not defined
+ERROR 2014-05-07 06:58:05,269 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 209, in submit_survey
+    increment_counter()
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 240, in increment_counter
+    request.session['counter'] += 1
+NameError: global name 'request' is not defined
+ERROR 2014-05-07 06:58:17,111 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 209, in submit_survey
+    increment_counter()
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 240, in increment_counter
+    request.session['counter'] += 1
+NameError: global name 'request' is not defined
+ERROR 2014-05-07 06:58:30,028 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 209, in submit_survey
+    increment_counter()
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 240, in increment_counter
+    request.session['counter'] += 1
+NameError: global name 'request' is not defined
+ERROR 2014-05-07 06:59:56,506 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 201, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'csrfmiddlewaretoken'
+ERROR 2014-05-07 07:00:04,255 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 201, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'csrfmiddlewaretoken'
+ERROR 2014-05-07 07:00:40,313 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 201, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'csrfmiddlewaretoken'
+ERROR 2014-05-07 07:00:54,192 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 201, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'csrfmiddlewaretoken'
+ERROR 2014-05-07 07:02:03,835 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 202, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'csrfmiddlewaretoken'
+ERROR 2014-05-07 07:02:34,046 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 202, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'csrfmiddlewaretoken'
+ERROR 2014-05-07 07:02:42,114 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 202, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'csrfmiddlewaretoken'
+ERROR 2014-05-07 07:02:53,204 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 202, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'race'
+ERROR 2014-05-07 07:02:56,656 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 202, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'csrfmiddlewaretoken'
+ERROR 2014-05-07 07:03:24,632 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 202, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'race'
+ERROR 2014-05-07 07:03:28,339 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 202, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'csrfmiddlewaretoken'
+ERROR 2014-05-07 07:04:56,243 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 202, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'csrfmiddlewaretoken'
+ERROR 2014-05-07 07:05:05,859 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 202, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'race'
+ERROR 2014-05-07 07:05:08,912 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 202, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'csrfmiddlewaretoken'
+ERROR 2014-05-07 07:05:23,830 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 202, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'race'
+ERROR 2014-05-07 07:05:34,116 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 202, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'csrfmiddlewaretoken'
+ERROR 2014-05-07 07:05:42,372 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 202, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'csrfmiddlewaretoken'
+ERROR 2014-05-07 07:05:53,136 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 202, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'race'
+ERROR 2014-05-07 07:05:57,003 views: Something terrible happened while saving survey data. Check stack trace
+Traceback (most recent call last):
+  File "/home/abhatt/Desktop/location-disclosure/locationdisclosure/app/views.py", line 202, in submit_survey
+    question = Question.objects.get(id=key)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 298, in get
+    clone = self.filter(*args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1232, in _add_q
+    current_negated=current_negated)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/query.py", line 1125, in build_filter
+    clause.add(constraint, AND)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/abhatt/Desktop/krowder/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'csrfmiddlewaretoken'

@@ -13,6 +13,7 @@ urlpatterns = patterns('',
                        url(r'^welcome$', 'app.views.welcome'),
                        url(r'^submit_survey$', 'app.views.submit_survey'),
                        url(r'^thanks$', 'app.views.thanks'),
+                       url(r'^goodbye$', 'app.views.goodbye'),
                        url(r'^$', 'app.views.landing'),
 
                        ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

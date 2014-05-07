@@ -160,8 +160,12 @@ def welcome(request):
 
     context['questions'] = questions_array
     context['conint'] = conint
+    request.session['counter'] += 1
+    request.session['answered_group'] = request.session['counter']
 
     if conint == 3:
+        request.session['counter'] += 1
+        request.session['answered_group'] = request.session['counter']
         return redirect('/survey_page')
 
     return render(request, 'objects/welcome.html', context)
@@ -170,6 +174,7 @@ def welcome(request):
 def survey_page(request):
 
     context = {'page': 'survey'}
+    increment_counter(request)
     context['current_group'] = request.session['answered_group']
     context['questions'] = []
     user_profile = User_Profile.objects.get(user=request.user)
@@ -192,9 +197,8 @@ def submit_survey(request):
     if request.is_ajax:
         try:
             keys = request.POST.iterkeys()
-
             for key in keys:
-                if key != 'csrfmiddlewaretoken':
+                if key != 'csrfmiddlewaretoken' or key != 'race':
                     question = Question.objects.get(id=key)
                     new_answer = Answer(
                         question=question, user=request.user, text=request.POST[key])
@@ -203,23 +207,10 @@ def submit_survey(request):
                         user_profile = User_Profile.objects.get(user=request.user)
                         user_profile.completed = 1
                         user_profile.save()
-
-            if request.session['counter'] < 2:
-                request.session['next_up'] = random.randint(1, 2)
-
-                if request.session['next_up'] == 1:
-                    request.session['answered_group'] = request.session['next_up']
-                    request.session['counter'] += 1 
-                    request.session['next_up'] = 2
-                    
-                else:
-                    request.session['answered_group'] = request.session['next_up']
-                    request.session['counter'] += 1 
-                    request.session['next_up'] = 1
-
-            else:
-                request.session['answered_group'] = request.session['counter'] + 1
-                request.session['counter'] += 1
+                elif key == 'race':
+                    new_answer = Answer(
+                        question=question, user=request.user, text=request.POST.getlist('race'))
+                    new_answer.save()
 
         except Exception as e:
             logger.exception('Something terrible happened while saving survey data. Check stack trace')
@@ -237,3 +228,45 @@ def get_client_ip(request):
 
 def thanks(request):
     return render(request, 'objects/thanks.html')
+
+
+def goodbye(request):
+    return render(request, 'objects/thanks.html')
+
+
+def increment_counter(request):
+
+    if request.session['counter'] == 2:
+        next_up = random.randint(2, 3) #This decides if census questions will come first, or if sensitive questions will come first
+
+        if next_up == 2:
+            request.session['answered_group'] = random.randint(1, 2)
+            if next_up == request.session['answered_group']:
+                request.session['next_up'] = 1
+                request.session['counter'] += 1
+            else:
+                request.session['next_up'] = 2
+                request.session['counter'] += 1
+
+        else:
+            request.session['answered_group'] = 3
+            request.session['counter'] += 1
+
+    elif request.session['counter'] == 3:
+
+        if request.session['answered_group'] == 3:
+
+            next_up = random.randint(1, 2)
+            request.session['answered_group'] = random.randint(1, 2)
+            if next_up == request.session['answered_group']:
+                request.session['next_up'] = 1
+                request.session['counter'] += 1
+            else:
+                request.session['next_up'] = 2
+                request.session['counter'] += 1
+        else:
+            request.session['answered_group'] = 3
+            request.session['counter'] += 1
+    else:
+        request.session['answered_group'] += 1
+    
