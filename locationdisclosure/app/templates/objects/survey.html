@@ -50,7 +50,6 @@ $(document).ready(function() {
                     {% include 'objects/textbox.html' %}
                 {% elif q.category == '3' %}
                     {% include 'objects/checkbox.html' %}
-                    {% include 'objects/textbox.html' %}
                 {% endif %}
             {% endfor %}
             {% if current_group >= 5 %}

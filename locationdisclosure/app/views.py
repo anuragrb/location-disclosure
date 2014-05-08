@@ -236,10 +236,15 @@ def goodbye(request):
 
 def increment_counter(request):
 
+    if request.session['counter'] == 1:
+        request.session['counter'] += 1
+        
     if request.session['counter'] == 2:
+
         next_up = random.randint(2, 3) #This decides if census questions will come first, or if sensitive questions will come first
 
         if next_up == 2:
+
             request.session['answered_group'] = random.randint(1, 2)
             if next_up == request.session['answered_group']:
                 request.session['next_up'] = 1
@@ -254,6 +259,7 @@ def increment_counter(request):
 
     elif request.session['counter'] == 3:
 
+        print 'here'
         if request.session['answered_group'] == 3:
 
             next_up = random.randint(1, 2)
@@ -265,8 +271,29 @@ def increment_counter(request):
                 request.session['next_up'] = 2
                 request.session['counter'] += 1
         else:
-            request.session['answered_group'] = 3
+            request.session['answered_group'] = request.session['next_up']
+            request.session['next_up'] = 3
             request.session['counter'] += 1
+            # if request.session['answered_group'] == 1:
+            #     request.session['answered_group'] = 2
+            #     request.session['counter'] += 1
+            #     request.session['next_up'] = 3
+            # else:
+            #     request.session['answered_group'] = 1
+            #     request.session['counter'] += 1
+            #     request.session['next_up'] = 3
+
+
+    elif request.session['counter'] == 4:
+        request.session['answered_group'] = request.session['next_up']
+        request.session['counter'] += 1
+        request.session['next_up'] = 4
+        
+    elif request.session['counter'] == 5:
+
+        request.session['answered_group'] = request.session['next_up']
+        request.session['next_up'] += 1
+
     else:
-        request.session['answered_group'] += 1
+        print 'here i am'
     
