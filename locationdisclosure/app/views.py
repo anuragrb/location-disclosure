@@ -238,7 +238,7 @@ def increment_counter(request):
 
     if request.session['counter'] == 1:
         request.session['counter'] += 1
-        
+
     if request.session['counter'] == 2:
 
         next_up = random.randint(2, 3) #This decides if census questions will come first, or if sensitive questions will come first
@@ -259,7 +259,6 @@ def increment_counter(request):
 
     elif request.session['counter'] == 3:
 
-        print 'here'
         if request.session['answered_group'] == 3:
 
             next_up = random.randint(1, 2)
