@@ -2,6 +2,20 @@
 
 {% block content %}
 
-<h3>Thank you for taking our study. You may now exit.</h3>
+<h3>Thank you for completing this study. 
+
+If you have any comments, please write them here. 
+
+Then, click on 'Next' to receive your confirmation code for completing the study.</h3>
+
+<form id='commentform' action='/finish' method='POST'>{%csrf_token%}
+
+<textarea class='form-control' id='comments' name='comments' style='width: 500px;' data-bvalidator='required' data-bvalidator-msg='Please answer all questions on this page'></textarea>
+<br>
+<br>
+
+<input type='submit' value='Next >>' />
+
+</form>
 
 {% endblock %}

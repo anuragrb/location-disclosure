@@ -37,6 +37,9 @@ $(document).ready(function() {
 
 <div class='row'>
     <div class='col-md-12'>
+        <div id='preamble'>
+            {% include 'objects/preamble.html' %}
+        </div>
         <form id='survey_form' method='POST' action='/submit_survey'>{% csrf_token %}
             <div class='form-group' style='padding: 10px;'>
             {% for q in questions %}

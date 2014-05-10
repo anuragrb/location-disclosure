@@ -294,5 +294,13 @@ def increment_counter(request):
         request.session['next_up'] += 1
 
     else:
-        print 'here i am'
+        pass
+
+def finish(request):
+
+    if 'comments' in request.POST:
+
+        new_answer = Answer(text=request.POST['comments'], user=request.user)
+
+    return render(request, 'objects/finish.html')
     
