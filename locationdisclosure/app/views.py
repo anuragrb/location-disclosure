@@ -198,7 +198,7 @@ def submit_survey(request):
         try:
             keys = request.POST.iterkeys()
             for key in keys:
-                if key != 'csrfmiddlewaretoken' or key != 'race':
+                if key != 'csrfmiddlewaretoken' and key != 'race':
                     question = Question.objects.get(id=key)
                     new_answer = Answer(
                         question=question, user=request.user, text=request.POST[key])
@@ -207,7 +207,7 @@ def submit_survey(request):
                         user_profile = User_Profile.objects.get(user=request.user)
                         user_profile.completed = 1
                         user_profile.save()
-                elif key == 'race':
+                elif str(key) == 'race':
                     new_answer = Answer(
                         question=question, user=request.user, text=request.POST.getlist('race'))
                     new_answer.save()
