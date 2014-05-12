@@ -1,0 +1,13 @@
+{% if q.options %}
+    
+    {% for option in q.options %}
+    
+        <input type="radio" name="{{ q.question.id }}" value='{{ option.text }}' data-bvalidator='required' data-bvalidator-msg='Please answer all questions on this page' /><label>{{ option.text }}</label><br>
+    
+    {% endfor %}
+    
+{% else %}
+    <input type='text' class='form-control' id='{{ q.question.id }}' name='{{ q.question.id }}' style='width: 500px;' data-bvalidator='required' data-bvalidator-msg='Please answer all questions on this page' />
+    <br>
+    <br>
+{% endif %}
