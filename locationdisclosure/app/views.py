@@ -164,7 +164,6 @@ def welcome(request):
     context['conint'] = conint
     request.session['counter'] += 1
     request.session['answered_group'] = request.session['counter']
-
     if conint == 3:
         request.session['counter'] += 1
         request.session['answered_group'] = request.session['counter']
@@ -176,13 +175,13 @@ def welcome(request):
 def survey_page(request):
 
     context = {'page': 'survey'}
-    
+    if request.session['counter'] == 2:
+        increment_counter(request)
     context['current_group'] = request.session['answered_group']
     context['questions'] = []
     user_profile = User_Profile.objects.get(user=request.user)
     questions = Question.objects.filter(
         group=request.session['answered_group'])
-
     context['user_profile'] = user_profile
     for question in questions:
         q = {}
@@ -226,6 +225,8 @@ def submit_survey(request):
             if request.session['answered_group'] == 5:
                 return redirect('/thanks')
             else:
+                if request.session['counter'] == 1:
+                    increment_counter(request)
                 return redirect('/survey_page')
         else:
             return redirect('/survey_page')

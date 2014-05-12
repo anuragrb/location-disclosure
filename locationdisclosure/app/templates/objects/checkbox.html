@@ -1,6 +1,8 @@
 {% for option in q.options %}
 
-<input type="checkbox" name="race" name="{{ q.question.id }}"  value={{ option.text }} data-bvalidator='required' data-bvalidator-msg='Please answer all questions on this page'  />
+<input type="checkbox" name="race" value={{ option.text }}  />
 <label>{{ option.text }}</label><br>
 
 {% endfor %}
+<input type="checkbox" style='display:none;' name="race" data-bvalidator='min[1],required' data-bvalidator-msg='Please answer all questions on this page' />
+<br>
