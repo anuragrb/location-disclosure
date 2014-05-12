@@ -20,7 +20,7 @@ class Answer(models.Model):
 
     text = models.CharField(max_length=10000)
     user = models.ForeignKey(User)
-    question = models.ForeignKey(Question)
+    question = models.ForeignKey(Question, null=True)
     time_posted = models.DateTimeField(auto_now_add=True)
 
 class User_Profile(models.Model):

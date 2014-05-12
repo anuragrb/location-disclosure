@@ -1,5 +1,20 @@
 {% extends 'pages/base.html' %}
 
-Thank you for taking our survey.
+{% block title %}Thank you{% endblock %}
 
-Your randomly generated payment code is F21ASF2H614GH. Please enter it to confirm the completion of the HIT.
+{% block head %}
+
+
+
+{% endblock %}
+
+{% block content %}
+<h3>Thank you for completing this survey! <br><br>
+
+Please copy and paste the following confirmation code into MTurk in order to be eligible for payment.<br><br>
+
+Payment code: F21ASF2H614GH. <br><br>
+
+Goodbye!
+</h3>
+{% endblock %}

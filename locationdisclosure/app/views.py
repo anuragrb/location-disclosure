@@ -18,6 +18,8 @@ logger = logging.getLogger('custom.logger')
 def landing(request):
 
     context = {'page': 'landing'}
+    zipcode = ''
+    zity = ''
     if 'MID' in request.GET:
 
         if User.objects.filter(username=request.GET['MID']):
@@ -174,7 +176,7 @@ def welcome(request):
 def survey_page(request):
 
     context = {'page': 'survey'}
-    increment_counter(request)
+    
     context['current_group'] = request.session['answered_group']
     context['questions'] = []
     user_profile = User_Profile.objects.get(user=request.user)
@@ -194,6 +196,7 @@ def survey_page(request):
 
 def submit_survey(request):
     context = {'page': 'submit_survey'}
+    increment_counter(request)
     if request.is_ajax:
         try:
             keys = request.POST.iterkeys()
@@ -208,13 +211,24 @@ def submit_survey(request):
                         user_profile.completed = 1
                         user_profile.save()
                 elif str(key) == 'race':
+                    races = ''
+                    for race in request.POST.getlist('race'):
+
+                        races = '{0}, {1}'.format(races, race)
+                    
                     new_answer = Answer(
-                        question=question, user=request.user, text=request.POST.getlist('race'))
+                        question=question, user=request.user, text=races)
                     new_answer.save()
 
         except Exception as e:
             logger.exception('Something terrible happened while saving survey data. Check stack trace')
-        return redirect('/survey_page')
+        if 'answered_group' in request.session:
+            if request.session['answered_group'] == 5:
+                return redirect('/thanks')
+            else:
+                return redirect('/survey_page')
+        else:
+            return redirect('/survey_page')
 
 
 def get_client_ip(request):
@@ -296,11 +310,12 @@ def increment_counter(request):
     else:
         pass
 
+
 def finish(request):
 
     if 'comments' in request.POST:
-
         new_answer = Answer(text=request.POST['comments'], user=request.user)
+        new_answer.save()
 
     return render(request, 'objects/finish.html')
     

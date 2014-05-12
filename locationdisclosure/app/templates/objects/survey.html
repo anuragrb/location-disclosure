@@ -1,6 +1,6 @@
 {% extends 'pages/base.html' %}
 
-{% block title %}Survey - Page {{ current_group }}{% endblock %}
+{% block title %}Survey on Ethical Behavior{% endblock %}
 
 {% block head %}
 
@@ -53,10 +53,12 @@ $(document).ready(function() {
                     {% include 'objects/textbox.html' %}
                 {% elif q.category == '3' %}
                     {% include 'objects/checkbox.html' %}
+                {% elif q.category == '4' %}
+                    {% include 'objects/radio_textbox.html' %}
                 {% endif %}
             {% endfor %}
-            {% if current_group >= 5 %}
-                <a href='/goodbye' class='btn btn-default'>Done</a>
+            {% if current_group == 4 %}
+                <input type='submit' class='btn btn-default' value='Next >>'/>
             {% else %}
                 <input type='submit' class='btn btn-default' value='Next >>'/>
             {% endif %}
